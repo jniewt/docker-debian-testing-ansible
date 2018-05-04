@@ -1,5 +1,4 @@
-FROM debian:jessie
-LABEL maintainer="Jeff Geerling"
+FROM debian:testing
 
 ENV DEBIAN_FRONTEND noninteractive
 
