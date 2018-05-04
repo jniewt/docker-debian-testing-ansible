@@ -1,4 +1,5 @@
 ---
+sudo: required
 services: docker
 
 env:
@@ -19,7 +20,7 @@ script:
   - docker build -t docker-ansible .
 
   # Test running the container.
-  - docker run --name test-container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-ansible /lib/systemd/system
+  - sudo docker run --name test-container -d --privileged -v /sys/fs/cgroup:/sys/fs/cgroup:ro docker-ansible /lib/systemd/system
 
   # Verify Ansible is available in the container.
   - docker exec --tty test-container env TERM=xterm ansible --version
